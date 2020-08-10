@@ -38,4 +38,15 @@ public class Offer implements Comparable<Offer>{
     public int hashCode() {
         return Objects.hash(id, price, from, to, flightTime);
     }
+
+    @Override
+    public String toString() {
+        return "Offer{" +
+                "id=" + id +
+                ", price=" + price +
+                ", from='" + from + '\'' +
+                ", to='" + to + '\'' +
+                ", flightTime=" + flightTime +
+                '}';
+    }
 }
