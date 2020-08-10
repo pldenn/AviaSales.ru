@@ -49,4 +49,5 @@ public class Offer implements Comparable<Offer> {
                 ", flightTimeInMinutes=" + flightTimeInMinutes +
                 '}';
     }
+
 }
