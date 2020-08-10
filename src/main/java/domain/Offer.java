@@ -10,12 +10,12 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Offer implements Comparable<Offer>{
+public class Offer implements Comparable<Offer> {
     private int id;
     private int price;
     private String from;
     private String to;
-    private int flightTime;
+    private int flightTimeInMinutes;
 
     @Override
     public int compareTo(Offer o) {
@@ -29,14 +29,14 @@ public class Offer implements Comparable<Offer>{
         Offer offer = (Offer) o;
         return id == offer.id &&
                 price == offer.price &&
-                flightTime == offer.flightTime &&
+                flightTimeInMinutes == offer.flightTimeInMinutes &&
                 from.equals(offer.from) &&
                 to.equals(offer.to);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, price, from, to, flightTime);
+        return Objects.hash(id, price, from, to, flightTimeInMinutes);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Offer implements Comparable<Offer>{
                 ", price=" + price +
                 ", from='" + from + '\'' +
                 ", to='" + to + '\'' +
-                ", flightTime=" + flightTime +
+                ", flightTimeInMinutes=" + flightTimeInMinutes +
                 '}';
     }
 }
