@@ -4,6 +4,7 @@ import domain.Offer;
 import repository.RepositoryOffer;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class ManagerOffer {
     private RepositoryOffer repositoryOffer;
@@ -16,7 +17,7 @@ public class ManagerOffer {
         repositoryOffer.add(offer);
     }
 
-    public Offer[] findAll(String from, String to) {
+    public Offer[] findAll(String from, String to, Comparator<Offer>comparator) {
         Offer[] result = new Offer[0];
         for (Offer ticket : repositoryOffer.getAll()) {
             if (ticket.getFrom().equals(from) && ticket.getTo().equals(to)) {
@@ -26,7 +27,7 @@ public class ManagerOffer {
                 result = tmp;
             }
         }
-        Arrays.sort(result);
+        Arrays.sort(result,comparator);
         return result;
     }
 
