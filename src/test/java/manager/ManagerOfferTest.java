@@ -1,5 +1,6 @@
 package manager;
 
+import comparator.OfferByTimeComparator;
 import domain.Offer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,6 +17,7 @@ class ManagerOfferTest {
     Offer offer2 = new Offer(2, 300, "SVO", "MBA", 730);
     Offer offer3 = new Offer(3, 200, "SVO", "SIP", 150);
     Offer offer4 = new Offer(4, 150, "SVO", "KVK", 130);
+        OfferByTimeComparator comparator = new OfferByTimeComparator();
 
     @BeforeEach
     public void setUp() {
@@ -27,8 +29,15 @@ class ManagerOfferTest {
 
     @Test
     void shouldFindAllAndSort() {
-        Offer[] expected = {offer2, offer1};
-        Offer[] actual = offer.findAll("SVO", "MBA");
+        Offer[] expected = {offer1, offer2};
+        Offer[] actual = offer.findAll("SVO", "MBA",comparator);
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldNotFind() {
+        Offer[] expected = {};
+        Offer[] actual = offer.findAll("PPO", "MBA",comparator);
         Assertions.assertArrayEquals(expected, actual);
     }
 }
