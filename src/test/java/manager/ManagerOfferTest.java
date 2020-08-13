@@ -40,5 +40,4 @@ class ManagerOfferTest {
         Offer[] actual = offer.findAll("PPO", "MBA",comparator);
         Assertions.assertArrayEquals(expected, actual);
     }
-
 }
